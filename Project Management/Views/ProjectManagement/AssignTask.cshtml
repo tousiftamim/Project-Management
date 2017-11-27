@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "AssignTask";
+    var listdata = ViewBag.ProjectList as IEnumerable<Project_Management.Models.ProjectManagement>;
+    
+}
+
+<h2>AssignTask</h2>
+<table class="">
+    <tr>
+        <td>
+            Project List
+        </td>
+
+        <td>
+            Employee List
+        </td>
+    </tr>
+    <tr>
+        @foreach (var list in listdata)
+        {
+            <td>
+                @list.ProjectName <br/>
+            </td>
+        }
+    </tr>
+   
+    
+    @*@foreach (var user in )
+    {
+        <tr>
+            <td>@user.UserName</td>
+        </tr>
+    }*@
+</table>
