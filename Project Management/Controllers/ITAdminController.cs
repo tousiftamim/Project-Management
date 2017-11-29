@@ -12,6 +12,7 @@ using WebMatrix.WebData;
 
 namespace Project_Management.Controllers
 {
+    [Authorize(Roles = "ITAdmin")]
     [InitializeSimpleMembership]
     public class ITAdminController : Controller
     {
@@ -22,7 +23,9 @@ namespace Project_Management.Controllers
 
         public ActionResult Index()
         {
-            return View(db.ItAdmins.ToList());
+            var userId = WebSecurity.CurrentUserId;
+            var userInfos = db.ItAdmins.Where(_ => _.UserId == userId).ToList();
+            return View(userInfos);
         }
 
         //
@@ -50,13 +53,13 @@ namespace Project_Management.Controllers
         // POST: /ITAdmin/Create
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public ActionResult Create(ITAdmin itadmin)
         {
             if (ModelState.IsValid)
             {
                 WebSecurity.CreateUserAndAccount(itadmin.UserName, itadmin.DefaultPassword);
-                
+                itadmin.UserId = WebSecurity.CurrentUserId;
                 db.ItAdmins.Add(itadmin);
                 db.SaveChanges();
                 var userId = db.UserProfiles.Where(_ => _.UserName == itadmin.UserName).Select(_ => _.UserId).FirstOrDefault();

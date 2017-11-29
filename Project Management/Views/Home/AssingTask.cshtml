@@ -1,0 +1,72 @@
+﻿@using Project_Management.Models
+@using Project_Management.Models.ViewModels
+@model IEnumerable<Project_Management.Models.ProjectManagement>
+@{
+    ViewBag.Title = "AssingTask";
+    var projectList = ViewBag.ProjecItems as List<ProjectUserVm>;
+    
+
+}
+
+<h2>Assing Task to a Person</h2>
+<div class="container">
+    <form method="post">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Select a Project:</label>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-control" name="ProjectId" id="ProjectId" required="">
+                        @foreach (var list in projectList)
+                        {
+                            <option value="@list.ProjectId">@list.ProjectName</option>
+                        }
+
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Select a Person:</label>
+                </div>
+                <div class="col-md-3">
+                    <div id="user-container"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Description</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" name="Description" required="" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3" >
+                    <label>Due Date</label>
+                </div>
+                <div class="col-md-3">
+                    <input type="date" name="DueDate" required="" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Priority</label>
+                </div>
+                <div class="col-md-3">
+                    <select name="Priority" required="" class="form-control">
+                        <option value="High">High</option>
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+
+                    </select>
+                </div>
+            </div>
+            <p>
+                <input class="form-control" type="submit" value="Assign" />
+            </p>
+        </div>
+    </form>
+
+</div>

@@ -4,36 +4,34 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Project", "Create")
+    @Html.ActionLink("Assign Project", "AssignTask")
+    @Html.ActionLink("Show Resource Person","ShowProjectResourcePerson")
 </p>
-<table>
+<table class="table table-striped">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ProjectName)
+           Project Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CodeName)
+            Code Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Description)
+            Description
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PossibleStartDate)
+            Possible Start Date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PossibleEndDate)
+           Possible End date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Duration)
+            Duration
         </th>
+        
         <th>
-            @Html.DisplayNameFor(model => model.UploadFile)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
+            Status
         </th>
         <th></th>
     </tr>
@@ -58,9 +56,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Duration)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.UploadFile)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>

@@ -4,62 +4,40 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create new User Here</h2>
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>ITAdmin</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UserName)
+<div class="container">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-2">
+                User Name:
+            </div>
+            <input type="text" name="UserName" required=""/>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UserName)
-            @Html.ValidationMessageFor(model => model.UserName)
+        <div class="row">
+            <div class="col-md-2">
+                User Email:
+            </div>
+            <input type="text" name="UserEmail" required="" id="UserEmail" />
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UserEmail)
+        <div class="row">
+            <div class="col-md-2">
+                Default Password:
+            </div>
+            <input type="text" name="DefaultPassword" required="" id="DefaultPassword" />
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UserEmail)
-            @Html.ValidationMessageFor(model => model.UserEmail)
+        <div class="row">
+            <div class="col-md-2">
+                Status:
+            </div>
+            <input type="radio" name="Status" value="Active" required=""> Active
+            <input type="radio" name="Status" value="InActive" required=""> InActive
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.DefaultPassword)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.DefaultPassword)
-            @Html.ValidationMessageFor(model => model.DefaultPassword)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Status)
-        </div>
-
-        @*<div class="editor-field">
-            @Html.EditorFor(model => model.Status)
-            @Html.ValidationMessageFor(model => model.Status)
-        </div>*@
-        <div class="editor-label">
-            <input type="radio" name="Status" value="Active"> Active
-            <input type="radio" name="Status" value="InActive"> InActive
-
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Designation)
-        </div>
-        @*<div class="editor-field">
-            @Html.EditorFor(model => model.Designation)
-            @Html.ValidationMessageFor(model => model.Designation)
-        </div>*@
-        <div class="editor-field">
-            <select name="Designation">
+        <div class="row">
+            <div class="col-md-2">
+                Designation:
+            </div>
+            <select name="Designation" required="">
                 <option value="Developer">Developer</option>
                 <option value="ProjectManager">Project Manager</option>
                 <option value="QAEngineer">QA Engineer</option>
@@ -68,15 +46,15 @@
             </select>
         </div>
         <p>
-            <input type="submit" value="Create" />
+            <input class="" type="submit" value="Create" />
         </p>
-    </fieldset>
-}
-
+    </form>
+</div>
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    
 }

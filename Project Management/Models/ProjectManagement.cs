@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Common.CommandTrees;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -19,6 +21,7 @@ namespace Project_Management.Models
         public string Duration { get; set; }
         public string UploadFile { get; set; }
         public string Status { get; set; }
+        public string ShortName { get; set; }
 
     }
 }

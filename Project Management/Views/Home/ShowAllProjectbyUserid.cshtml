@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Project_Management.Models.AllProjectsByCurrentUserIdVM>
+
+@{
+    ViewBag.Title = "ShowAllProjectbyUserid";
+}
+
+<h2>All Project by User</h2>
+
+<table class="table table-striped">
+    <thead>
+    <th>Name</th>
+    <th>Short Name</th>
+    <th>Status</th>
+    <th>Number of members</th>
+    <th>Number of Tasks</th>
+    </thead>
+    <tbody>
+    @foreach (var idVm in Model)
+    {
+        <tr>
+            <td>
+                <a href="/Home/Details/@idVm.Id">@idVm.Name</a>
+            </td>
+            <td>@idVm.ShortName</td>
+            <td>@idVm.Status</td>
+            <td>@idVm.NumberOfMembers</td>
+            <td>@idVm.NumberOfTasks</td>
+        </tr>
+    }
+       
+    </tbody>
+</table>
+

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Project_Management.Models.ProjectResourcePersonVM>
+
+@{
+    ViewBag.Title = "ShowProjectResourcePerson";
+}
+
+<h2>Project Resource Person List</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table table-striped">
+    <tr>
+        <th>
+           Project Name
+        </th>
+        <th>
+           Resource Person
+        </th>
+        <th>
+           Designation
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResourcePerson)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>*@
+    </tr>
+}
+
+</table>

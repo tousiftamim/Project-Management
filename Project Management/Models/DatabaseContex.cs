@@ -15,11 +15,8 @@ namespace Project_Management.Models
         }
         public DbSet<ITAdmin> ItAdmins { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
-
         public DbSet<ProjectManagement> ProjectManagements { get; set; }
-        
-
-        
-         
+        public DbSet<ProjectAssignModel> ProjectAssignModels { get; set; }
+        public DbSet<TaskAssign> TaskAssigns { get; set; }
     }
 }

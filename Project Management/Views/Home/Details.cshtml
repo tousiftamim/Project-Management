@@ -1,0 +1,172 @@
+﻿@using Project_Management.Models
+@using Project_Management.Models.ViewModels
+@model Project_Management.Models.ProjectManagement
+
+@{
+    ViewBag.Title = "Details";
+    var tasks = ViewBag.Tasks as List<ShowTaskVM>;
+}
+
+<h2>Details</h2>
+
+<div class="container">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-3">
+                Project Name:
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.ProjectName)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Code Name:
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.CodeName)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Description:
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Description)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Possible Start Date
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.PossibleStartDate)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Possible End Date
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.PossibleEndDate)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Duration
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Duration)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Upload File
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.UploadFile)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                Status
+            </div>
+            <div class="col-md-3">
+                @Html.DisplayFor(model => model.Status)
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
+<h2>Task Details</h2>
+@*<fieldset>
+    <legend>ProjectManagement</legend>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.ProjectName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProjectName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.CodeName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CodeName)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PossibleStartDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PossibleStartDate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.PossibleEndDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PossibleEndDate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Duration)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Duration)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.UploadFile)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UploadFile)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+</fieldset>*@
+<table class="table table-striped">
+    <tr>
+        <th>Description</th>
+        <th>Assign to</th>
+        <th>Priority</th>
+        <th>Assigned by</th>
+        <th>Due Date</th>
+    </tr>
+    
+    @foreach (var task in tasks)
+    {
+        <tr>
+            <td>
+                @task.Description
+            </td>
+            <td>@task.AssignTo</td>
+            <td>@task.Priority</td>
+            <td>@task.AssignedBy</td>
+            <td>@task.DueDate</td>
+            
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

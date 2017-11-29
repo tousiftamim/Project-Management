@@ -81,6 +81,6 @@ C:\Users\Ttami\Desktop\Nerd Castle Limited\Project\Project Management\Project Ma
 C:\Users\Ttami\Desktop\Nerd Castle Limited\Project\Project Management\Project Management\bin\ru\System.Spatial.resources.dll
 C:\Users\Ttami\Desktop\Nerd Castle Limited\Project\Project Management\Project Management\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\Ttami\Desktop\Nerd Castle Limited\Project\Project Management\Project Management\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\Ttami\Desktop\Nerd Castle Limited\Project\Project Management\Project Management\obj\Debug\Project Management.csprojResolveAssemblyReference.cache
 C:\Users\Ttami\Desktop\Nerd Castle Limited\Project\Project Management\Project Management\obj\Debug\Project Management.dll
 C:\Users\Ttami\Desktop\Nerd Castle Limited\Project\Project Management\Project Management\obj\Debug\Project Management.pdb
+C:\Users\Ttami\Desktop\Nerd Castle Limited\Project\Project Management\Project Management\obj\Debug\Project Management.csprojResolveAssemblyReference.cache
