@@ -18,7 +18,7 @@ namespace Project_Management.Services
         public List<ITAdmin> GetUsersByProjectId(int projectId)
         {
             var users = (from assignModel in _database.ProjectAssignModels
-                join itAdmin in _database.ItAdmins on assignModel.PersonsUserId equals itAdmin.UserId
+                join itAdmin in _database.ItAdmins on assignModel.PersonsUserId equals itAdmin.Id
                 where assignModel.ProjectId == projectId
                 select itAdmin).ToList();
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Objects;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -53,24 +54,33 @@ namespace Project_Management.Controllers
         // POST: /ITAdmin/Create
 
         [HttpPost]
-        
+
         public ActionResult Create(ITAdmin itadmin)
         {
-            if (ModelState.IsValid)
+            var isExists = db.UserProfiles.Any(_ => _.UserName == itadmin.UserName);
+            var isEmailExits = db.ItAdmins.Any(_ => _.UserEmail == itadmin.UserEmail);
+            if (isExists)
             {
-                WebSecurity.CreateUserAndAccount(itadmin.UserName, itadmin.DefaultPassword);
-                itadmin.UserId = WebSecurity.CurrentUserId;
-                db.ItAdmins.Add(itadmin);
-                db.SaveChanges();
-                var userId = db.UserProfiles.Where(_ => _.UserName == itadmin.UserName).Select(_ => _.UserId).FirstOrDefault();
-                Roles.AddUserToRole(itadmin.UserName, itadmin.Designation);
-                
-
-
-                return RedirectToAction("Index");
+                ViewBag.ErrorMessage = "User name already taken";
+                return View();
+            }
+            if (isEmailExits)
+            {
+                ViewBag.ErrorMessage = "Email address already taken";
+                return View();
             }
 
-            return View(itadmin);
+                WebSecurity.CreateUserAndAccount(itadmin.UserName, itadmin.DefaultPassword);
+                itadmin.UserId = WebSecurity.CurrentUserId;
+                itadmin.Id = WebSecurity.GetUserId(itadmin.UserName);
+                db.ItAdmins.Add(itadmin);
+                db.SaveChanges();
+                var userId =
+                    db.UserProfiles.Where(_ => _.UserName == itadmin.UserName).Select(_ => _.UserId).FirstOrDefault();
+                Roles.AddUserToRole(itadmin.UserName, itadmin.Designation);
+
+                return RedirectToAction("Index");
+
         }
 
         //

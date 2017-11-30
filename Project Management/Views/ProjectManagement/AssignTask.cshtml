@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "AssignTask";
     var listdata = ViewBag.ProjectList as IEnumerable<Project_Management.Models.ProjectManagement>;
-    var listUser = ViewBag.UserList as IEnumerable<Project_Management.Models.UserProfile>;
+    var listUser = ViewBag.UserList as IEnumerable<Project_Management.Models.ITAdmin>;
 }
 
 <h2>Assign a Person in any Project</h2>
@@ -30,7 +30,7 @@
                     <select class="form-control" name="PersonsUserId">
                         @foreach (var list in listUser)
                         {
-                            <option value="@list.UserId">@list.UserName</option>
+                            <option value="@list.Id">@list.UserName</option>
                         }
                     </select>
                 </div>

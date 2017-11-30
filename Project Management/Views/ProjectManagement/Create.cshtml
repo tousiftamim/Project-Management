@@ -3,77 +3,105 @@
 <h2>Create new Project Here</h2>
 
 <div class="container">
-   @using (Html.BeginForm("Create", "ProjectManagement", FormMethod.Post, new {enctype = "multipart/form-data"}))
-   {
-       <div class="form-group">
-           <div class="row">
-               <div class="col-md-3">
-                   Project Name:
-               </div>
-               <input class="col-md-3" type="text" name="ProjectName" required=""/>
-           </div>
-           <div class="row">
-               <div class="col-md-3">
-                   Short Name:
-               </div>
-               <input class="col-md-3" type="text" name="ShortName" required=""/>
-           </div>
-           <div class="row">
-               <div class="col-md-3">
-                   Code Name:
-               </div>
-               <input class="col-md-3" type="text" name="CodeName" required=""/>
-           </div>
-           <div class="row">
-               <div class="col-md-3">
-                   Description:
-               </div>
-               <input class="col-md-3" type="text" name="Description" required=""/>
-           </div>
-           <div class="row">
-               <div class="col-md-3">
-                   Possible Start Date:
-               </div>
-               <input class="col-md-3" type="date" name="PossibleStartDate" id="PossibleStartDate" required="" />
-           </div>
-           <div class="row">
-               <div class="col-md-3">
-                   Possible End Date:
-               </div>
-               <input class="col-md-3" type="date" name="PossibleEndDate" id="PossibleEndDate" required="" />
-           </div>
-           <div class="row">
-               <div class="col-md-3">
-                   Duration:
-               </div>
-               <input class="col-md-3" type="text" name="Duration" id="ProjectDuration" required=""/>
-           </div>
-           <div class="row">
-               <div class="col-md-3">
-                   Upload File:
-               </div>
-               <input class="col-md-3" type="file" name="file"/>
+    @using (Html.BeginForm("Create", "ProjectManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-3">
+                    Project Name:
+                </div>
+                <input class="col-md-3" type="text" name="ProjectName" required="" />
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Short Name:
+                </div>
+                <input class="col-md-3" type="text" name="ShortName" required="" />
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Code Name:
+                </div>
+                <input class="col-md-3" type="text" name="CodeName" required="" />
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Description:
+                </div>
+                <input class="col-md-3" type="text" name="Description" required="" />
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Possible Start Date:
+                </div>
+                <input class="col-md-3" type="date" name="PossibleStartDate" id="PossibleStartDate" required="" />
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Possible End Date:
+                </div>
+                <input class="col-md-3" type="date" name="PossibleEndDate" id="PossibleEndDate" required="" />
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Duration:
+                </div>
+                <input class="col-md-3" type="text" name="Duration" id="ProjectDuration" required="" />
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Upload File:
+                </div>
+                <input class="col-md-3" type="file" name="file" />
 
-           </div>
-           <div class="row">
-               <div class="col-md-3">
-                   Status:
-               </div>
-               <div class="col-md-3">
-                   <input type="radio" name="Status" value="Not Started" required=""> Not Started
-                   <input type="radio" name="Status" value="Started" required=""> Started
-                   <input type="radio" name="Status" value="Completed" required=""> Completed
-                   <input type="radio" name="Status" value="Cancelled" required=""> Cancelled
-               </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    Status:
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="radio" name="Status" value="Not Started" required="">
+                        </div>
+                        <div class="col-md-3">
+                            Not Started
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="radio" name="Status" value="Started" required="">
+                        </div>
+                        <div class="col-md-3">
+                            Started
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="radio" name="Status" value="Completed" required="">
+                        </div>
+                        <div class="col-md-3">
+                            Completed
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <input type="radio" name="Status" value="Cancelled" required="">
+                        </div>
+                        <div class="col-md-3">
+                            Cancelled
+                        </div>
+                    </div>
+                </div>
 
-           </div>
-       </div>
+            </div>
+        </div>
 
-       <p>
-           <input type="submit" value="Create"/>
-       </p>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
 
-   }
+    }
 </div>
 
 

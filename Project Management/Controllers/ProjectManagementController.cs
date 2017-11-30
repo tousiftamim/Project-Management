@@ -68,6 +68,7 @@ namespace Project_Management.Controllers
                             string path = Path.Combine(Server.MapPath("~/Images/"),
                                                   Path.GetFileName(file.FileName));
                             file.SaveAs(path);
+                            projectmanagement.UploadFile = path;
                             ViewBag.Message = "File uploaded successfully";
                         }
                        
@@ -79,6 +80,7 @@ namespace Project_Management.Controllers
                 }
             {
                 projectmanagement.UserId = WebSecurity.CurrentUserId;
+                
                 db.ProjectManagements.Add(projectmanagement);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -145,7 +147,10 @@ namespace Project_Management.Controllers
         public ActionResult AssignTask()
         {
             List<ProjectManagement> projectList = db.ProjectManagements.Where(_ => _.UserId == WebSecurity.CurrentUserId).ToList();
-            List<UserProfile> userlist = db.UserProfiles.ToList();
+            var userId = WebSecurity.CurrentUserId;
+            var itAdmin = db.ItAdmins.FirstOrDefault(_=>_.Id == userId);
+            var adminId = itAdmin.UserId;
+            List<ITAdmin> userlist = db.ItAdmins.Where(_ => _.UserId == adminId).ToList();
             ViewBag.ProjectList = projectList;
             ViewBag.UserList = userlist;
             return View();

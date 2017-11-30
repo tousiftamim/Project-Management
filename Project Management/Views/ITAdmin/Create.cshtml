@@ -1,4 +1,6 @@
-﻿@model Project_Management.Models.ITAdmin
+﻿@*
+@model Project_Management.Models.ITAdminVm
+*@
 
 @{
     ViewBag.Title = "Create";
@@ -7,7 +9,11 @@
 <h2>Create new User Here</h2>
 
 <div class="container">
-    <form method="post">
+    @if (@ViewBag.ErrorMessage !=null)
+    {
+        <div class="alert" style="color: red">@ViewBag.ErrorMessage</div>
+    }
+    <form method="post" class="form-horizontal">
         <div class="row">
             <div class="col-md-2">
                 User Name:
@@ -18,13 +24,13 @@
             <div class="col-md-2">
                 User Email:
             </div>
-            <input type="text" name="UserEmail" required="" id="UserEmail" />
+            <input type="text" name="UserEmail" required="" id="UserEmail"/>
         </div>
         <div class="row">
             <div class="col-md-2">
                 Default Password:
             </div>
-            <input type="text" name="DefaultPassword" required="" id="DefaultPassword" />
+            <input type="text" name="DefaultPassword" required="" id="DefaultPassword"/>
         </div>
         <div class="row">
             <div class="col-md-2">
@@ -46,7 +52,7 @@
             </select>
         </div>
         <p>
-            <input class="" type="submit" value="Create" />
+            <input class="" type="submit" value="Create"/>
         </p>
     </form>
 </div>
